@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private bool isOnPlatform = false;
     private float _horizontalDirection;
+    private int coinSumm;
+    [SerializeField] private TextMeshProUGUI _coinText;
+    [SerializeField] private GameObject _coinsParent;
+    [SerializeField] private GameObject _playerSpawn;
 
 
 
@@ -43,6 +48,26 @@ public class PlayerController : MonoBehaviour
         {
             isOnPlatform = true;
         }
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.CompareTag("Coin"))
+        {
+            Destroy(other.gameObject);
+            coinSumm++;
+            _coinText.text = Convert.ToString(coinSumm);
+            
+            Debug.Log("Вы собрали монетку!");
+            Debug.Log("У вас в сумме: " + coinSumm);
+        }
+        
+        if (other.transform.CompareTag("DeathCollider"))
+        {
+            this.transform.position = _playerSpawn.transform.position;
+        }
+        
     }
 
     private void Jump()

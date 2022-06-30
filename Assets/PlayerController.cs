@@ -1,14 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
-    public Camera playerCamera;
     [SerializeField] private float _playerSpeed = 1;
     [SerializeField] private float _playerJumpForce = 1;
     private Rigidbody rb;
     private bool isOnPlatform = false;
+    private float _horizontalDirection;
 
 
 
@@ -26,19 +28,18 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") != 0)
         {
-            float hDirection = Input.GetAxis("Horizontal");
-            MovePlayer(hDirection);
-            Debug.Log("Player is Moving");
-        }
-        else
-        {
-            MovePlayer(0);
+            _horizontalDirection = Input.GetAxis("Horizontal");
         }
     }
-    
+
+    private void FixedUpdate()
+    {
+        MovePlayer(_horizontalDirection);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "Platform")
+        if (collision.transform.CompareTag("Platform"))
         {
             isOnPlatform = true;
         }
@@ -52,15 +53,6 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer(float direction)
     {
-        float dir = direction;
-        if (dir == -1)
-        { 
-            rb.AddForce(new Vector3(-1 * _playerSpeed, 0, 0), ForceMode.Impulse);
-        }
-
-        if (dir == 1)
-        {
-            rb.AddForce(new Vector3(1 * _playerSpeed, 0, 0), ForceMode.Impulse);
-        }
+        rb.MovePosition(transform.position + new Vector3(direction * _playerSpeed, 0, 0));
     }
 }

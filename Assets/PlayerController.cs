@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 using TMPro;
+using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,14 +17,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _coinText;
     [SerializeField] private GameObject _coinsParent;
     [SerializeField] private GameObject _playerSpawn;
+    private CoinSpawner coinSpawner;
+    private bool isDead = false;
+    [SerializeField] private GameObject[] _coins;
+
+    [SerializeField] private int _playerHealth;
 
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        coinSpawner = new CoinSpawner();
     }
-    
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isOnPlatform)
@@ -55,19 +62,16 @@ public class PlayerController : MonoBehaviour
     {
         if (other.transform.CompareTag("Coin"))
         {
-            Destroy(other.gameObject);
-            coinSumm++;
-            _coinText.text = Convert.ToString(coinSumm);
-            
-            Debug.Log("Вы собрали монетку!");
-            Debug.Log("У вас в сумме: " + coinSumm);
+            CollectCoin(other.gameObject);
         }
         
         if (other.transform.CompareTag("DeathCollider"))
         {
-            this.transform.position = _playerSpawn.transform.position;
+            isDead = !isDead;
+            SpawnCoins();
+            ClearCoinSumm();
+            RespawnPlayer();
         }
-        
     }
 
     private void Jump()
@@ -79,5 +83,52 @@ public class PlayerController : MonoBehaviour
     private void MovePlayer(float direction)
     {
         rb.MovePosition(transform.position + new Vector3(direction * _playerSpeed, 0, 0));
+    }
+
+    private void CollectCoin(GameObject other)
+    {
+        HideCoin(other);
+        SummCoin(other);
+    }
+
+    private void HideCoin(GameObject other)
+    {
+        other.gameObject.SetActive(false);
+    }
+
+    private void SummCoin(GameObject other)
+    {
+        coinSumm++;
+        _coinText.text = Convert.ToString(coinSumm);
+    }
+
+    private void SpawnCoins()
+    {
+        for (int i = 0; i < _coins.Length; i++)
+        {
+            _coins[i].gameObject.SetActive(true);
+            coinSpawner.Inject(isDead, _coins[i].GetComponent<Transform>().position , _coins[i]);
+        }
+    }
+
+    private void ClearCoinSumm()
+    {
+        coinSumm = 0;
+        _coinText.text = Convert.ToString(coinSumm);
+    }
+
+    private void RespawnPlayer()
+    {
+        this.transform.position = _playerSpawn.transform.position;
+    }
+
+    public void Health()
+    {
+        
+    }
+
+    public void TakeEnemyDamage(int damage)
+    {
+        
     }
 }

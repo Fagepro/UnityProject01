@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class CoinSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject coinPrefab;
-    private Transform coinTransform;
-    private Vector3 coinPosition;
+    private Vector3 coinPos;
     void Start()
     {
-        coinPosition = GetComponent<Transform>().position;
-        Instantiate(coinPrefab);
-        coinPrefab.transform.position = coinPosition;
+        
+    }
 
+    public void Inject(bool isDead, Vector3 coinPrefabPosition, GameObject coinPrefab)
+    {
+        
+        if (isDead == true)
+        {
+            coinPrefab.gameObject.SetActive(true);
+            coinPos = coinPrefab.GetComponent<Transform>().position;
+            coinPrefabPosition = coinPos;
+            Debug.Log("Coins was spawned/activated");
+        }
     }
 
     // Update is called once per frame

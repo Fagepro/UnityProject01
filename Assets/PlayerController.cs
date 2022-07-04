@@ -1,10 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using TMPro;
-using Random = UnityEngine.Random;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private bool isDead = false;
     [SerializeField] private GameObject[] _coins;
 
-    [SerializeField] private int _playerHealth;
+    [SerializeField] private int _playerHealth = 100;
 
 
 
@@ -58,19 +55,26 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collidedObject)
     {
-        if (other.transform.CompareTag("Coin"))
+        if (collidedObject.transform.CompareTag("Coin"))
         {
-            CollectCoin(other.gameObject);
+            CollectCoin(collidedObject.gameObject);
         }
         
-        if (other.transform.CompareTag("DeathCollider"))
+        if (collidedObject.transform.CompareTag("DeathCollider"))
         {
             isDead = !isDead;
             SpawnCoins();
             ClearCoinSumm();
             RespawnPlayer();
+        }
+
+        if (collidedObject.transform.CompareTag("Enemy"))
+        {
+            Enemy enemy = collidedObject.GetComponent<Enemy>();
+            int enemyDamage = enemy.GetDamage();
+            TakeEnemyDamage(enemyDamage);
         }
     }
 
@@ -122,13 +126,37 @@ public class PlayerController : MonoBehaviour
         this.transform.position = _playerSpawn.transform.position;
     }
 
-    public void Health()
-    {
-        
-    }
-
     public void TakeEnemyDamage(int damage)
     {
         
+        if (_playerHealth > 0)
+        {
+            _playerHealth = _playerHealth - damage;
+            if (_playerHealth < 0)
+            {
+                Death();
+                Debug.Log("U DIE");
+            }
+            else
+            {
+                Debug.Log($"Damage: - {damage} Player Health: {_playerHealth}");
+            }
+        }
+        else
+        {
+            Death();
+            Debug.Log("U DIE");
+        }
+    }
+
+    private void Death()
+    {
+        if (_playerHealth < 0)
+        {
+            RespawnPlayer();
+            SpawnCoins();
+            ClearCoinSumm();
+            _playerHealth = 100;
+        }
     }
 }

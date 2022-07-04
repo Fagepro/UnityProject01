@@ -6,11 +6,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private PlayerController _player;
-    private int _damage;
+    [SerializeField] private int toPlayerDamage;
+    [SerializeField] private bool isMovable;
 
-    private void DamagePlayer(int damage)
+    public int GetDamage()
     {
-        //SetEnemyDamage();
-        _player.TakeEnemyDamage(damage);
+        return toPlayerDamage;
     }
 }

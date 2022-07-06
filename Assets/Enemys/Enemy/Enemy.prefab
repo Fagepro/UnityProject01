@@ -110,5 +110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc1aa4b3904c9d47ba307ab7c3482c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toPlayerDamage: 45
+  toPlayerDamage: 23
   isMovable: 0

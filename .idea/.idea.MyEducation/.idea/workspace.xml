@@ -2,16 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b21c58ea-06a9-4c10-8610-d3fdf9cb553d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/EnemySpawnPoint.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MyEducation/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MyEducation/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EnemySpawner.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EnemySpawner.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EnemySpawnPoint.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EnemyTypes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EnemyTypes.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EnemyTypesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EnemyTypesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CameraFollow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CameraFollow.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CoinSpawner.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CoinSpawner.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemy.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemy.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EnemySpawnPoint.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EnemySpawnPoint.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EnemyTypesController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EnemyTypesController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NewBehaviourScript.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NewBehaviourScript.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectTypes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectTypes.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RespawnPlayer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RespawnPlayer.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SpawnController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SpawnController.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,14 +40,13 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d8d38b92d94a4ff8a91e61d39c6d19cd15d000/f3/0fcd271f/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/SpawnController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/EnemySpawnPoint.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewBehaviourScript.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d8d38b92d94a4ff8a91e61d39c6d19cd15d000/b5/97588e2e/Behaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/890d6fe26e8c408ea64b353e791fafce46a800/c4/4001819d/NullReferenceException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d8d38b92d94a4ff8a91e61d39c6d19cd15d000/00/d95b3305/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/890d6fe26e8c408ea64b353e791fafce46a800/b3/af95db14/SystemException.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d8d38b92d94a4ff8a91e61d39c6d19cd15d000/e1/2d56a370/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CoinSpawner.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -63,10 +74,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="3728">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="3728" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -91,24 +102,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/PlayerController.cs</url>
-          <line>131</line>
-          <properties documentPath="E:\Unity_Projects\MyEducation\Assets\PlayerController.cs" initialLine="140" containingFunctionPresentation="method 'TakeEnemyDamage'">
-            <startOffsets>
-              <option value="3156" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3178" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
